@@ -1,0 +1,17 @@
+<script setup lang="ts">
+  interface PageProps {
+    full?: boolean;
+  }
+
+  withDefaults(defineProps<PageProps>(), {
+    full: false,
+  });
+</script>
+
+<template>
+  <div class="flex flex-col" :class="full ? 'w-full' : 'px-4 sm:px-6 lg:px-8'">
+    <div class="flex-1 w-full" :class="!full && 'mx-auto max-w-screen-md py-8'">
+      <slot />
+    </div>
+  </div>
+</template>

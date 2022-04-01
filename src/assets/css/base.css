@@ -1,0 +1,23 @@
+@layer base {
+    html {
+        @apply font-sans min-w-[360px] scroll-smooth;
+    }
+
+    body {
+        @apply bg-gray-50 text-gray-800 dark:bg-black dark:text-white;
+    }
+
+    #app {
+        @apply min-h-screen flex flex-col;
+    }
+
+    h1 {
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl;
+    }
+    h3 {
+        @apply text-lg;
+    }
+}
