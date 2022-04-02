@@ -67,7 +67,7 @@
 
   /* base colors */
   --color--white: #fff;
-  --color--black: #000;
+  --color--black: #1a1a1a;
 
   /* other */
   --color--error: var(--color--red600);
