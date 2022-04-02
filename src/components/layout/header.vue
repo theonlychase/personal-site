@@ -2,6 +2,12 @@
   import { ref, watch } from 'vue';
   import LayoutNavigation from '@/components/layout/navigation.vue';
   import { WcIcon } from 'wc-ui-library';
+  import { getUsers } from '~/services/internaAPI';
+
+  const { data } = await useAsyncData('count', (nuxtApp) =>
+    getUsers(nuxtApp.$prisma),
+  );
+  console.log(data.value);
 
   const darkMode = ref(false);
 
