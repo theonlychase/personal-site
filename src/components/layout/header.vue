@@ -16,12 +16,16 @@
 </script>
 
 <template>
-  <nav class="bg-gray-50 dark:bg-black bg-opacity-60 sticky top-0">
-    <div class="flex justify-between max-w-screen-md mx-auto py-8">
-      <LayoutNavigation />
+  <nav
+    class="bg-gray-50 dark:bg-black bg-opacity-60 sticky top-0 transition-colors"
+  >
+    <div
+      class="flex justify-between items-center max-w-screen-md mx-auto px-4 md:px-0 sm:py-6 py-8"
+    >
+      <LayoutNavigation class="hidden sm:block" />
       <button
         type="button"
-        class="bg-gray-200 dark:bg-gray-600 hover:ring-2 ring-gray-400 dark:ring-gray-200 rounded-lg sm:p-2 transition-all"
+        class="bg-gray-200 dark:bg-gray-600 hover:ring-2 ring-gray-400 dark:ring-gray-200 rounded-lg p-2 transition-all"
         @click="darkMode = !darkMode"
       >
         <WcIcon

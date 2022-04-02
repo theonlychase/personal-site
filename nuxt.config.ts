@@ -20,6 +20,11 @@ export default defineNuxtConfig({
   css: ['@/assets/css/tailwind.css'],
   srcDir: 'src/',
   vite: {
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
     plugins: [visualizer()],
   },
 });
