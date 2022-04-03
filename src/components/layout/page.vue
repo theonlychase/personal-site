@@ -9,8 +9,11 @@
 </script>
 
 <template>
-  <div class="flex flex-col" :class="full ? 'w-full' : 'px-4 sm:px-6 lg:px-8'">
-    <div class="flex-1 w-full" :class="!full && 'mx-auto max-w-screen-md py-8'">
+  <div
+    class="flex flex-col flex-1"
+    :class="full ? 'w-full' : 'px-4 sm:px-6 lg:px-8'"
+  >
+    <div class="flex-1 w-full" :class="!full && 'mx-auto max-w-2xl py-8'">
       <slot />
     </div>
   </div>

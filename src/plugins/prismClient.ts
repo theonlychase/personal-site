@@ -1,12 +1,12 @@
-import pkg from '@prisma/client';
+// import pkg from '@prisma/client';
 
-export default defineNuxtPlugin(() => {
-  const { PrismaClient } = pkg;
-  const prisma = new PrismaClient();
-
-  return {
-    provide: {
-      prisma,
-    },
-  };
-});
+export default defineNuxtPlugin(() => ({
+  // const { PrismaClient } = pkg;
+  // const prisma = new PrismaClient();
+  //
+  // return {
+  //   provide: {
+  //     prisma,
+  //   },
+  // };
+}));
