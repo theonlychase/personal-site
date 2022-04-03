@@ -3,6 +3,7 @@
   import LayoutNavigation from '@/components/layout/navigation.vue';
   import LayoutMobileNavigation from '@/components/layout/mobileNavigation.vue';
   import { WcIcon } from 'wc-ui-library';
+  // import Toggle from '@/components/ui/toggle';
 
   const darkMode = ref(false);
 
@@ -26,6 +27,14 @@
       <LayoutNavigation />
       <LayoutMobileNavigation />
 
+      <!--      <Toggle v-model:toggled="darkMode">-->
+      <!--        <WcIcon-->
+      <!--          :name="!darkMode ? 'moonSolid' : 'sun'"-->
+      <!--          :color="!darkMode ? 'white' : 'gray300'"-->
+      <!--          class="stroke-gray-900 dark:stroke-gray-300 stroke-2 rounded-full"-->
+      <!--          size="xSmall"-->
+      <!--        />-->
+      <!--      </Toggle>-->
       <button
         type="button"
         class="bg-gray-200 dark:bg-gray-600 hover:ring-2 ring-gray-400 dark:ring-gray-200 rounded-full p-2 transition-all"
