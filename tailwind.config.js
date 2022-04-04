@@ -2,41 +2,17 @@ module.exports = {
   darkMode: 'class',
   content: [
     './src/components/**/*.{vue,js,ts}',
-    './src/layouts/**/*.{vue,js,ts}',
+    './src/layouts/*.{vue,js,ts}',
+    './src/pages/*.{vue,js,ts}',
     './src/pages/**/*.{vue,js,ts}',
-    './node_modules/wc-ui-library/dist/*.{vue,js,ts}',
+    './src/index.html',
+    './src/static/*.js',
   ],
   theme: {
     extend: {
-      animation: {
-        'loading-before': 'loading-before 1s ease-out infinite',
-        'loading-after': 'loading-after 1s ease-out infinite',
-      },
       aspectRatio: {
         '4/3': '4 / 3',
         '16/9': '16 / 9',
-      },
-      keyframes: {
-        'loading-before': {
-          '0%': {
-            left: '-100%',
-            width: '100%',
-          },
-          '100%': {
-            left: '100%',
-            width: '100%',
-          },
-        },
-        'loading-after': {
-          '0%': {
-            left: '-100%',
-            width: '100%',
-          },
-          '100%': {
-            left: '100%',
-            width: '100%',
-          },
-        },
       },
       screens: {
         'sm-max': {
@@ -50,6 +26,24 @@ module.exports = {
       transitionDelay: {
         50: '50ms',
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            pre: {
+              color: theme('colors.gray.800'),
+              backgroundColor: theme('colors.transparent'),
+            },
+          },
+        },
+        invert: {
+          css: {
+            pre: {
+              color: theme('colors.gray.400'),
+              backgroundColor: theme('colors.transparent'),
+            },
+          },
+        },
+      }),
     },
     colors: {
       black: 'var(--color--black)',
@@ -82,8 +76,10 @@ module.exports = {
     require('@tailwindcss/forms')({
       strategy: 'class',
     }),
+    require('@tailwindcss/typography'),
   ],
   corePlugins: {
+    accentColors: false,
     backdropBlur: false,
     backdropBrightness: false,
     backdropContrast: false,
@@ -95,13 +91,29 @@ module.exports = {
     backdropSaturate: false,
     backdropSepia: false,
     backgroundBlendMode: false,
+    backgroundClip: false,
+    backgroundImage: false,
+    backgroundOrigin: false,
+    backgroundPosition: false,
+    backgroundRepeat: false,
+    backgroundSize: false,
     blur: false,
+    borderCollapse: false,
     boxDecorationBreak: false,
+    boxSizing: false,
+    breakAfter: false,
+    breakBefore: false,
+    breakInside: false,
     brightness: false,
+    caretColor: false,
+    clear: false,
     container: false,
     contrast: false,
     dropShadow: false,
     filter: false,
+    float: false,
+    fontVariantNumeric: false,
+    gradientColorStops: false,
     grayscale: false,
     hueRotate: false,
     invert: false,
@@ -111,5 +123,11 @@ module.exports = {
     ringOpacity: false,
     sepia: false,
     saturate: false,
+    scrollMargin: false,
+    scrollPadding: false,
+    scrollSnapAlign: false,
+    scrollSnapStop: false,
+    scrollSnapType: false,
+    tableLayout: false,
   },
 };

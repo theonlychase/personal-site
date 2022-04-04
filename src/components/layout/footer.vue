@@ -1,18 +1,5 @@
 <script setup lang="ts">
-  const nav = [
-    {
-      text: 'Home',
-      to: '/',
-    },
-    {
-      text: 'Blog',
-      to: '/blog',
-    },
-    {
-      text: 'Contact',
-      to: '/contact',
-    },
-  ];
+  import { nav } from '~/static/data';
 </script>
 
 <template>
@@ -28,7 +15,7 @@
           :key="item.text"
           :to="`${item.to}`"
           :title="item.text"
-          class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-200 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
         >
           {{ item.text }}
         </NuxtLink>
@@ -38,7 +25,7 @@
           href="https://github.com/theonlychase"
           target="_blank"
           title="Github"
-          class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-200 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
         >
           Github
         </a>
@@ -46,7 +33,7 @@
           href="https://www.linkedin.com/in/chaseisley/"
           target="_blank"
           title="Github"
-          class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-200 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
         >
           LinkedIn
         </a>
