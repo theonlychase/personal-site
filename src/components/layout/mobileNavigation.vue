@@ -1,24 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { WcIcon } from 'wc-ui-library';
-
-  const nav = [
-    {
-      text: 'Home',
-      to: '/',
-      delay: '',
-    },
-    {
-      text: 'Blog',
-      to: '/blog',
-      delay: 'delay-50',
-    },
-    {
-      text: 'Contact',
-      to: '/contact',
-      delay: 'delay-100',
-    },
-  ];
+  import Icon from '@/components/ui/icons/icon.vue';
+  import { nav } from '~/static/data';
 
   const showMenu = ref(false);
   const childTransitions = ref('w-0 opacity-0 -translate-x-4');
@@ -40,7 +23,7 @@
 <template>
   <div class="md:hidden">
     <button type="button" class="bg-transparent md:hidden" @click="toggleMenu">
-      <WcIcon
+      <Icon
         name="menuAlt2Stroke"
         class="!stroke-gray-800 dark:!stroke-gray-200"
         size="small"
@@ -70,7 +53,7 @@
           <NuxtLink
             :to="`${item.to}`"
             active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-500 font-semibold"
-            class="custom-link w-full text-gray-800 hover:text-green-700 dark:text-gray-200 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
+            class="custom-link w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
             @click="showMenu = false"
           >
             {{ item.text }}
