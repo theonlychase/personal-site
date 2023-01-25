@@ -43,8 +43,8 @@
 </script>
 
 <template>
-  <h1>Chase Isley</h1>
-  <p class="mb-4">Frontend Developer at Vehicle History</p>
+  <h1 class="mb-2">Hi, I'm Chase Isley</h1>
+  <p class="text-lg mb-2">I'm a software engineer skilled with</p>
 
   <p
     class="flex items-center text-lg h-5 animate-blink border-r-2 border-transparent w-fit font-semibold dark:text-gray-200"

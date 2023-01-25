@@ -8,7 +8,7 @@ module.exports = {
   ],
   theme: {
     colors: {
-      black: '#1a1a1a',
+      black: '#242424',
       gray: {
         900: '#111827',
         800: '#1F2937',
@@ -24,6 +24,7 @@ module.exports = {
       green: {
         500: '#42b883',
         700: '#33a06f',
+        800: '#295f47',
       },
       transparent: 'transparent',
       white: ' #fff',
