@@ -1,12 +1,8 @@
-import { defineNuxtConfig } from 'nuxt3';
+import { defineNuxtConfig } from 'nuxt3/config';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt'],
-  vueuse: {
-    autoImports: false,
-    ssrHandlers: true,
-  },
+  modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
@@ -14,7 +10,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  css: ['@/assets/css/tailwind.css'],
+  css: ['@/assets/css/tailwind.scss'],
   srcDir: 'src/',
   vite: {
     server: {

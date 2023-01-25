@@ -15,6 +15,7 @@
           :key="item.text"
           :to="`${item.to}`"
           :title="item.text"
+          active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-500 font-semibold"
           class="custom-link text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
         >
           {{ item.text }}

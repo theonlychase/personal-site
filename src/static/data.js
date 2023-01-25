@@ -10,10 +10,15 @@ const nav = [
     delay: 'delay-75',
   },
   {
-    text: 'Snippets',
-    to: '/snippets',
+    text: 'Contact',
+    to: '/contact',
     delay: 'delay-150',
   },
+  // {
+  //   text: 'Snippets',
+  //   to: '/snippets',
+  //   delay: 'delay-150',
+  // },
 ];
 
 export { nav };
