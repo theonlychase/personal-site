@@ -22,7 +22,12 @@
 
 <template>
   <div class="md:hidden">
-    <button type="button" class="bg-transparent md:hidden" @click="toggleMenu">
+    <button
+      type="button"
+      class="bg-transparent md:hidden"
+      title="Mobile Menu"
+      @click="toggleMenu"
+    >
       <Icon name="menu" />
     </button>
 
@@ -43,13 +48,13 @@
         <li
           v-for="item in nav"
           :key="item.text"
-          class="flex transition-all ease duration-300 border-b border-gray-300 dark:border-gray-700 pb-4"
+          class="flex transition-all ease duration-300 border-b border-gray-300 dark:border-gray-600 pb-4"
           :class="[childTransitions, item.delay]"
         >
           <NuxtLink
             :to="`${item.to}`"
-            active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-500 font-semibold"
-            class="custom-link w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
+            active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold"
+            class="custom-link text-lg w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
             @click="showMenu = false"
           >
             {{ item.text }}

@@ -38,6 +38,7 @@
       <button
         type="button"
         class="bg-gray-200 dark:bg-gray-600 hover:ring-2 ring-gray-400 dark:ring-gray-200 rounded-full p-2 transition-all"
+        title="Toggle Dark Mode"
         @click="mode = mode === 'dark' ? 'light' : 'dark'"
       >
         <Icon
