@@ -30,9 +30,48 @@ module.exports = {
       current: 'currentColor',
     },
     extend: {
+      animation: {
+        blink: 'blink 1s infinite',
+        fadeIn: 'fadeIn .5s',
+        fadeLeft: 'fadeLeft .5s',
+      },
       aspectRatio: {
         '4/3': '4 / 3',
         '16/9': '16 / 9',
+      },
+      keyframes: {
+        blink: {
+          0: {
+            borderColor: 'transparent',
+          },
+          '45%': {
+            borderColor: 'transparent',
+          },
+          '50%': {
+            borderColor: '#9CA3AF',
+          },
+          '100%': {
+            borderColor: '#9CA3AF',
+          },
+        },
+        fadeIn: {
+          '0%': {
+            opacity: 0,
+          },
+          '100%': {
+            opacity: 1,
+          },
+        },
+        fadeLeft: {
+          '0%': {
+            opacity: '0',
+            transform: 'translate3d(-1rem, 0, 0)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translate3d(0, 0, 0)',
+          },
+        },
       },
       screens: {
         'sm-max': {

@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-700 dark:bg-black dark:text-gray-400;
+    @apply bg-gray-50 text-gray-700 dark:bg-black dark:text-gray-400 transition-colors ease-in-out;
   }
 
   #app {
