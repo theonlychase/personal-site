@@ -1,4 +1,4 @@
-const getUsers = (prisma) => {
+const getUsers = (prisma: any) => {
   try {
     return prisma.user.findMany();
   } catch (error) {

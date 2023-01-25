@@ -1,26 +1,23 @@
 <script setup lang="ts">
   import { ref, watch } from 'vue';
+  import { useColorMode } from '@vueuse/core';
   import LayoutNavigation from '@/components/layout/navigation.vue';
   import LayoutMobileNavigation from '@/components/layout/mobileNavigation.vue';
-  import Icon from '@/components/ui/icons/icon.vue';
+  import Icon from '@/components/ui/icon/Icon.vue';
   // import Toggle from '@/components/ui/toggle';
 
-  const darkMode = ref(false);
-
-  watch(darkMode, (val) => {
-    const html = document.querySelector('html');
-    if (val) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
+  const mode = useColorMode({
+    initialValue: 'light',
+    modes: {
+      dark: 'dark',
+      light: 'light',
+    },
+    storageKey: 'theme',
   });
 </script>
 
 <template>
-  <nav
-    class="bg-gray-50 dark:bg-black bg-opacity-60 sticky top-0 transition-colors"
-  >
+  <nav class="bg-gray-50 dark:bg-black bg-opacity-60 sticky top-0">
     <div
       class="relative flex justify-between items-center max-w-2xl mx-auto px-4 md:px-0 py-6"
     >
@@ -28,7 +25,7 @@
       <LayoutMobileNavigation />
 
       <!--      <Toggle v-model:toggled="darkMode">-->
-      <!--        <icons-->
+      <!--        <icon-->
       <!--          :name="!darkMode ? 'moonSolid' : 'sun'"-->
       <!--          :color="!darkMode ? 'white' : 'gray300'"-->
       <!--          class="stroke-gray-900 dark:stroke-gray-300 stroke-2 rounded-full"-->
@@ -38,13 +35,13 @@
       <button
         type="button"
         class="bg-gray-200 dark:bg-gray-600 hover:ring-2 ring-gray-400 dark:ring-gray-200 rounded-full p-2 transition-all"
-        @click="darkMode = !darkMode"
+        @click="mode = mode === 'dark' ? 'light' : 'dark'"
       >
         <Icon
-          :name="!darkMode ? 'moon' : 'sun'"
-          color="gray200"
-          class="stroke-gray-900 dark:stroke-gray-200 stroke-2"
+          :name="mode === 'dark' ? 'moon' : 'sun'"
+          class="text-gray-900 dark:text-gray-200"
           size="small"
+          :title="mode === 'dark' ? 'Dark' : 'Light'"
         />
       </button>
     </div>

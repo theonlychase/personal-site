@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import Icon from '@/components/ui/icons/icon.vue';
+  import Icon from '~/components/ui/icon/Icon.vue';
   import { nav } from '~/static/data';
 
   const showMenu = ref(false);
@@ -23,11 +23,7 @@
 <template>
   <div class="md:hidden">
     <button type="button" class="bg-transparent md:hidden" @click="toggleMenu">
-      <Icon
-        name="menuAlt2Stroke"
-        class="!stroke-gray-800 dark:!stroke-gray-200"
-        size="small"
-      />
+      <Icon name="menu" size="small" />
     </button>
 
     <transition
