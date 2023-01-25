@@ -23,7 +23,7 @@
 <template>
   <div class="md:hidden">
     <button type="button" class="bg-transparent md:hidden" @click="toggleMenu">
-      <Icon name="menu" size="small" />
+      <Icon name="menu" />
     </button>
 
     <transition
