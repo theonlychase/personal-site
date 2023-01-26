@@ -19,7 +19,7 @@
 
 <template>
   <nav
-    class="bg-gray-50 dark:bg-black bg-opacity-60 sticky top-0 transition-colors ease-in-out"
+    class="bg-gray-50 dark:bg-black bg-opacity-60 sticky top-0 transition-colors ease-in-out z-20"
   >
     <div
       class="relative flex justify-between items-center max-w-2xl mx-auto px-4 md:px-0 py-6"
