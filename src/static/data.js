@@ -21,6 +21,19 @@ const nav = [
   // },
 ];
 
+const projects = [
+  {
+    url: 'https://flamboyant-heyrovsky-cb0a70.netlify.app',
+    title: 'Frontend Workshop for building UI Components',
+    description:
+      'Ultra-lite version of Storybook built in Vue 3, showcasing Vue 3 UI components & their variations.',
+    gradient: 'from-[#42b883] via-[#f7d486] to-[#f27a7d]',
+  },
+  // {
+  //   gradient: 'from-[#84ffc9] via-[#aab2ff] to-[#eca0ff]',
+  // },
+];
+
 const skills = [
   'Modern Frontend Architecture',
   'User Interface/User Experience',
@@ -30,4 +43,4 @@ const skills = [
   'Solving Problems at Scale',
 ];
 
-export { nav, skills };
+export { projects, nav, skills };
