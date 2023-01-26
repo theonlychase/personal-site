@@ -21,4 +21,13 @@ const nav = [
   // },
 ];
 
-export { nav };
+const skills = [
+  'Modern Frontend Architecture',
+  'User Interface/User Experience',
+  'Design Systems',
+  'Progressive Enhancement',
+  'Core Web Vitals Performance',
+  'Solving Problems at Scale',
+];
+
+export { nav, skills };

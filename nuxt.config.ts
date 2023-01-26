@@ -7,9 +7,15 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Chase Isley - Software Engineer',
+      title: "Chase Isley's Portfolio",
       charset: 'utf-8',
-      meta: [],
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Chase Isley is a software engineer highly skilled at modern front-end architecture, design systems, and solving problems at scale.',
+        },
+      ],
       link: [],
     },
   },
