@@ -202,10 +202,10 @@
       v-if="rightIcon"
       class="absolute inset-y-0 right-0 pr-3 flex items-center"
       :class="{
-        'cursor-pointer': isClearable,
+        'cursor-pointer': isClearable && !error,
         'pointer-events-none': !isClearable,
       }"
-      @click.prevent="isClearable ? clear() : null"
+      @click.prevent="isClearable && !error ? clear() : null"
       @mousedown.prevent="keepFocus = true"
       @mouseup.prevent="keepFocus = false"
     >
