@@ -11,7 +11,7 @@
 
 <template>
   <div
-    class="overflow-hidden rounded-lg bg-white dark:bg-white/[.04] py-16 px-6 lg:px-8 lg:py-24"
+    class="overflow-hidden rounded-lg bg-gray-200/50 dark:bg-white/[.04] py-16 px-6 lg:px-8 lg:py-24"
   >
     <div class="relative mx-auto max-w-xl">
       <div class="text-center">
