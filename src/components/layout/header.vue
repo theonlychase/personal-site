@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useColorMode } from '@vueuse/core';
   import LayoutNavigation from '@/components/layout/navigation.vue';
-  import LayoutMobileNavigation from '@/components/layout/mobileNavigation.vue';
+  import LayoutMobileNavigation from '~/components/layout/MobileNavigation.vue';
   import Icon from '@/components/ui/icon/Icon.vue';
 
   const mode = useColorMode({

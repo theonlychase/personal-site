@@ -2,6 +2,7 @@
   import { ref } from 'vue';
   import Icon from '~/components/ui/icon/Icon.vue';
   import { nav } from '~/static/data';
+  const route = useRoute();
 
   interface MobileNavProps {
     show?: boolean;
@@ -59,14 +60,17 @@
           class="flex transition-all ease duration-300 border-b border-gray-300 dark:border-gray-600 pb-4"
           :class="[childTransitions, item.delay]"
         >
-          <NuxtLink
-            :to="`${item.to}`"
-            active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold"
+          <a
+            :href="`${item.to}`"
             class="custom-link text-lg w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
+            :class="{
+              '!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold':
+                route.href === item.to,
+            }"
             @click="showMenu = false"
           >
             {{ item.text }}
-          </NuxtLink>
+          </a>
         </li>
         <li
           class="flex transition-all ease duration-300 delay-300"
