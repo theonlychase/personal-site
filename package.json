@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "NITRO_PRESET=netlify-edge nuxt build",
-    "start": "node .netlify/edge-functions/server.mjs",
+    "start": "node .output/server/index.mjs",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "prepare": "husky install"
   },
