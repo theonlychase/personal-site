@@ -24,6 +24,9 @@ export default defineNuxtConfig({
   //   autoImport: false,
   // },
   modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
+  nitro: {
+    preset: 'netlify-edge',
+  },
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
