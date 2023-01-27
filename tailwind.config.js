@@ -26,6 +26,9 @@ module.exports = {
         700: '#33a06f',
         800: '#295f47',
       },
+      red: {
+        500: '#EF4444',
+      },
       transparent: 'transparent',
       white: ' #fff',
       current: 'currentColor',
@@ -105,9 +108,6 @@ module.exports = {
         },
       }),
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     require('@tailwindcss/forms')({
