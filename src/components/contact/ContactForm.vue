@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { reactive, watch } from 'vue';
   import Textbox from '~/components/ui/textbox/Textbox.vue';
-  import { validateEmail } from '~/utils/utils';
+  import { injectScript, validateEmail } from '~/utils/utils';
 
   interface FormState {
     [key: string]: { value: string; error: boolean; errorMessage: string };
@@ -9,15 +9,6 @@
   const errorMessages = {
     required: 'is required',
     email: 'Email is not valid',
-  };
-
-  const setError = (
-    field: { value: string; error: boolean; errorMessage: string },
-    error: boolean,
-    msg: string,
-  ) => {
-    field.error = error;
-    field.errorMessage = msg;
   };
 
   const state: FormState = reactive({
@@ -46,7 +37,16 @@
     }
   }
 
-  function validate() {
+  function setError(
+    field: { value: string; error: boolean; errorMessage: string },
+    error: boolean,
+    msg: string,
+  ): void {
+    field.error = error;
+    field.errorMessage = msg;
+  }
+
+  function validate(): boolean {
     for (const key in state) {
       // Required Validation
       if (state[key].value === '') {

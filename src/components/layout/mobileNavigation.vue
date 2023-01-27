@@ -43,7 +43,7 @@
     >
       <ul
         v-if="showMenu"
-        class="h-screen absolute flex flex-col left-0 w-full space-y-4 px-4 z-20 bg-gray-50 dark:bg-black pt-8"
+        class="h-screen absolute flex flex-col left-0 w-full space-y-4 px-4 z-20 bg-gray-50 dark:bg-black pt-8 mt-1"
       >
         <li
           v-for="item in nav"

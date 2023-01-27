@@ -14,9 +14,9 @@
 
 <template>
   <div
-    class="bg-gray-50 overflow-hidden divide-y divide-gray-200"
+    class="bg-gray-50 overflow-hidden divide-y divide-gray-200 rounded-lg"
     :class="{
-      'rounded-lg shadow-sm ring-1 ring-gray-200 ring-inset': !borderless,
+      'shadow-sm ring-1 ring-gray-200 ring-inset': !borderless,
     }"
   >
     <div

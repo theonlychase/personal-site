@@ -22,7 +22,7 @@
       :title="title"
       target="_blank"
     >
-      <Card class="h-full dark:bg-black">
+      <Card class="h-full dark:bg-black" content-class="px-4" borderless>
         <div class="font-semibold text-lg dark:text-white">
           {{ title }}
         </div>
