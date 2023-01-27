@@ -169,7 +169,8 @@
       :is="element"
       :id="label || id"
       ref="input"
-      auto-complete="new-password"
+      role="presentation"
+      autocomplete="off"
       :disabled="disabled"
       :type="type"
       :name="name"
@@ -180,7 +181,7 @@
         'form-textarea min-h-[40px] pt-1.5 !pr-8': element === 'textarea',
       }"
       :rows="element === 'textarea' ? 4 : null"
-      class="block w-full min-w-max rounded-md border-0 pl-0 py-0 pr-7 text-gray-900 dark:bg-black/[.04] dark:text-gray-300 placeholder-gray-400 disabled:text-gray-400 focus:ring-0 autofill:bg-white autofill:!dark:bg-black/[.04]"
+      class="block w-full min-w-max rounded-md border-0 pl-0 py-0 pr-7 text-gray-900 dark:bg-black/[.04] dark:text-gray-300 placeholder-gray-400 disabled:text-gray-400 focus:ring-0 autofill:bg-white autofill:dark:!bg-black/[.04]"
       :placeholder="placeholder"
       :value="value"
       @input="({ target }) => emit('update:value', target.value)"

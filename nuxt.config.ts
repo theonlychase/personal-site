@@ -19,6 +19,10 @@ export default defineNuxtConfig({
       link: [],
     },
   },
+  css: ['@/assets/css/tailwind.scss'],
+  // imports: {
+  //   autoImport: false,
+  // },
   modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
   postcss: {
     plugins: {
@@ -27,7 +31,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  css: ['@/assets/css/tailwind.scss'],
+  runtimeConfig: {
+    public: {
+      emailId: '',
+      emailKey: '',
+      templateId: '',
+    },
+  },
   srcDir: 'src/',
   vite: {
     server: {

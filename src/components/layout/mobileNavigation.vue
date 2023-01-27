@@ -3,8 +3,16 @@
   import Icon from '~/components/ui/icon/Icon.vue';
   import { nav } from '~/static/data';
 
-  const showMenu = ref(false);
+  interface MobileNavProps {
+    show?: boolean;
+  }
+
+  withDefaults(defineProps<MobileNavProps>(), {
+    show: false,
+  });
+
   const childTransitions = ref('w-0 opacity-0 -translate-x-4');
+  const showMenu = ref(false);
 
   const toggleMenu = () => {
     document.body.classList.toggle('overflow-hidden');
