@@ -60,6 +60,27 @@
             {{ item.text }}
           </NuxtLink>
         </li>
+        <li
+          class="flex transition-all ease duration-300 delay-300"
+          :class="[childTransitions]"
+        >
+          <a
+            href="https://github.com/theonlychase"
+            target="_blank"
+            title="Github"
+            class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          >
+            <Icon name="github" size="small" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chaseisley/"
+            target="_blank"
+            title="LinkedIn"
+            class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          >
+            <Icon name="linkedin" size="small" />
+          </a>
+        </li>
       </ul>
     </transition>
   </div>
