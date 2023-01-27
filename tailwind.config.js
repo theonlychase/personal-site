@@ -45,7 +45,7 @@ module.exports = {
       },
       keyframes: {
         blink: {
-          0: {
+          '0%': {
             borderColor: 'transparent',
           },
           '45%': {

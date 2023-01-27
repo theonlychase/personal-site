@@ -33,7 +33,7 @@
         <a
           href="https://www.linkedin.com/in/chaseisley/"
           target="_blank"
-          title="Github"
+          title="LinkedIn"
           class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
         >
           LinkedIn

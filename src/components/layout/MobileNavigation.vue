@@ -2,9 +2,18 @@
   import { ref } from 'vue';
   import Icon from '~/components/ui/icon/Icon.vue';
   import { nav } from '~/static/data';
+  const route = useRoute();
 
-  const showMenu = ref(false);
+  interface MobileNavProps {
+    show?: boolean;
+  }
+
+  withDefaults(defineProps<MobileNavProps>(), {
+    show: false,
+  });
+
   const childTransitions = ref('w-0 opacity-0 -translate-x-4');
+  const showMenu = ref(false);
 
   const toggleMenu = () => {
     document.body.classList.toggle('overflow-hidden');
@@ -43,7 +52,7 @@
     >
       <ul
         v-if="showMenu"
-        class="h-screen absolute flex flex-col left-0 w-full space-y-4 px-4 z-20 bg-gray-50 dark:bg-black pt-8"
+        class="h-screen absolute flex flex-col left-0 w-full space-y-4 px-4 z-20 bg-gray-50 dark:bg-black pt-8 mt-1"
       >
         <li
           v-for="item in nav"
@@ -51,14 +60,38 @@
           class="flex transition-all ease duration-300 border-b border-gray-300 dark:border-gray-600 pb-4"
           :class="[childTransitions, item.delay]"
         >
-          <NuxtLink
-            :to="`${item.to}`"
-            active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold"
+          <a
+            :href="`${item.to}`"
             class="custom-link text-lg w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
+            :class="{
+              '!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold':
+                route.href === item.to,
+            }"
             @click="showMenu = false"
           >
             {{ item.text }}
-          </NuxtLink>
+          </a>
+        </li>
+        <li
+          class="flex transition-all ease duration-300 delay-300"
+          :class="[childTransitions]"
+        >
+          <a
+            href="https://github.com/theonlychase"
+            target="_blank"
+            title="Github"
+            class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          >
+            <Icon name="github" size="small" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chaseisley/"
+            target="_blank"
+            title="LinkedIn"
+            class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
+          >
+            <Icon name="linkedin" size="small" />
+          </a>
         </li>
       </ul>
     </transition>

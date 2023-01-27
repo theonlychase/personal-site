@@ -35,4 +35,8 @@
   .dark .prose .hljs-string {
     @apply text-green-500;
   }
+
+  input:-webkit-autofill {
+    -webkit-background-clip: text;
+  }
 }

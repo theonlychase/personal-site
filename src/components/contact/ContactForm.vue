@@ -1,24 +1,32 @@
 <script setup lang="ts">
-  import { reactive, watch } from 'vue';
+  import { reactive, Ref, ref } from 'vue';
   import Textbox from '~/components/ui/textbox/Textbox.vue';
-  import { validateEmail } from '~/utils/utils';
+  import Icon from '~/components/ui/icon/Icon.vue';
+  import { injectScript, validateEmail } from '~/utils/utils';
+  const config = useRuntimeConfig();
 
   interface FormState {
     [key: string]: { value: string; error: boolean; errorMessage: string };
   }
-  const errorMessages = {
+  const messages = {
     required: 'is required',
     email: 'Email is not valid',
+    success: 'Your message was successfully sent!',
   };
 
-  const setError = (
-    field: { value: string; error: boolean; errorMessage: string },
-    error: boolean,
-    msg: string,
-  ) => {
-    field.error = error;
-    field.errorMessage = msg;
-  };
+  const scriptLoaded = ref(false);
+  const form = ref(null);
+  const loading = ref(false);
+  const success = ref(false);
+  const emailJs: Ref<{
+    init: (key: string) => void;
+    sendForm: (
+      serviceId: string,
+      templateId: string,
+      form: HTMLFormElement | null,
+      publicKey: string,
+    ) => { status: number; text: string };
+  } | null> = ref(null);
 
   const state: FormState = reactive({
     name: {
@@ -38,26 +46,78 @@
     },
   });
 
-  function onSubmit() {
+  async function onSubmit() {
+    success.value = false;
     const isValid = validate();
+    if (!isValid) {
+      return;
+    }
 
-    if (isValid) {
-      console.log(state);
+    loading.value = true;
+    await initEmailJs();
+
+    if (isValid && emailJs.value) {
+      try {
+        const resp = await emailJs.value?.sendForm(
+          config.public.emailId,
+          config.public.templateId,
+          form.value,
+          config.public.emailKey,
+        );
+
+        if (resp.status === 200) {
+          success.value = true;
+          resetForm();
+        }
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
-  function validate() {
+  async function initEmailJs() {
+    if (!scriptLoaded.value) {
+      scriptLoaded.value = await injectScript({
+        src: 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js',
+        id: 'emailjs',
+      });
+      if (scriptLoaded.value && !emailJs.value) {
+        // @ts-ignore
+        emailJs.value = window?.emailjs;
+      }
+    }
+  }
+
+  function setError(
+    field: { value: string; error: boolean; errorMessage: string },
+    error: boolean,
+    msg: string,
+  ): void {
+    field.error = error;
+    field.errorMessage = msg;
+  }
+
+  function validate(): boolean {
     for (const key in state) {
       // Required Validation
       if (state[key].value === '') {
-        setError(state[key], true, errorMessages.required);
+        setError(state[key], true, messages.required);
       }
       // Email Validation
       if (key === 'email' && !validateEmail(state.email.value)) {
-        setError(state.email, true, errorMessages.email);
+        setError(state.email, true, messages.email);
       }
     }
     return Object.values(state).every((v) => !v.error);
+  }
+
+  function resetForm() {
+    loading.value = false;
+    for (const key in state) {
+      state[key].value = '';
+      state[key].error = false;
+      state[key].errorMessage = '';
+    }
   }
 </script>
 
@@ -76,7 +136,8 @@
       </div>
       <div class="mt-12">
         <form
-          class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+          ref="form"
+          class="grid gap-y-8 sm:grid-cols-2 sm:gap-x-8"
           @submit.prevent="onSubmit"
         >
           <Textbox
@@ -86,6 +147,7 @@
               state.name.error ? `Name ${state.name.errorMessage}` : ''
             "
             icon-left="user"
+            name="name"
             size="large"
             placeholder="Name"
             @update:value="
@@ -97,6 +159,7 @@
             :error="state.email.error"
             :error-message="state.email.errorMessage"
             icon-left="mail"
+            name="email"
             size="large"
             placeholder="Email"
             @update:value="
@@ -104,42 +167,40 @@
             "
           />
           <div class="sm:col-span-2">
-            <textarea
-              id="message"
-              :value="state.message.value"
+            <Textbox
+              v-model:value="state.message.value"
               name="message"
-              rows="4"
-              placeholder="Message"
-              class="form-textarea block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-green-500 focus:ring-green-500 transition-colors placeholder-gray-400 dark:text-gray-300 dark:bg-black/[.04]"
-              :class="
+              element="textarea"
+              :error="state.message.error"
+              :error-message="
                 state.message.error
-                  ? '!border-red-500 !ring-1 !ring-red-500'
+                  ? `Message ${state.message.errorMessage}`
                   : ''
               "
-              @input="
-                ({ target }) => {
-                  state.message.value = target.value;
-                  if (state.message.error) {
-                    setError(state.message, false, '');
-                  }
-                }
+              icon-left="pen"
+              placeholder="Message"
+              @update:value="
+                state.message.error ? setError(state.message, false, '') : null
               "
             />
-            <div
-              v-if="state.message.error"
-              class="mt-1 text-red-500 text-xs text-left truncate w-full"
-            >
-              Message {{ state.message.errorMessage }}
-            </div>
           </div>
-          <div class="sm:col-span-2">
+          <div class="relative sm:col-span-2">
             <button
               type="submit"
               title="Submit"
-              class="inline-flex items-center justify-center rounded-md border border-transparent bg-green-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700/90 focus:outline-none"
+              class="inline-flex items-center justify-center rounded-md border border-transparent bg-green-700 px-6 py-3 font-medium text-white shadow-sm hover:bg-green-700/90 focus:outline-none"
             >
-              Send
+              Submit
+              <Icon
+                :name="!loading ? 'send' : 'spinner'"
+                size="small"
+                class="ml-4 text-white"
+                :class="loading ? 'animate-spin' : ''"
+              />
             </button>
+            <div v-if="success" class="animate-fadeIn absolute text-lg mt-4">
+              {{ messages.success }}
+            </div>
           </div>
         </form>
       </div>

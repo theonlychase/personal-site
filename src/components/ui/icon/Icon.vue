@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { type ComponentOptionsWithArrayProps, computed } from 'vue';
-  import { icons, sizeClasses } from './icons';
+  import { getIcon, sizeClasses } from './icons';
 
   const props = defineProps({
     name: {
@@ -26,7 +26,7 @@
 
   const computedSvg = computed(() =>
     props.name
-      ? `<title>${props.title || props.name}</title>${icons[props.name].path}`
+      ? `<title>${props.title || props.name}</title>${getIcon(props.name)}`
       : console.error('Icon does not exist', props.name),
   );
 </script>
