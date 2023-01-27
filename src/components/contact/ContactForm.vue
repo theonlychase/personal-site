@@ -86,6 +86,7 @@
               state.name.error ? `Name ${state.name.errorMessage}` : ''
             "
             icon-left="user"
+            name="name"
             size="large"
             placeholder="Name"
             @update:value="
@@ -97,6 +98,7 @@
             :error="state.email.error"
             :error-message="state.email.errorMessage"
             icon-left="mail"
+            name="email"
             size="large"
             placeholder="Email"
             @update:value="
@@ -104,33 +106,20 @@
             "
           />
           <div class="sm:col-span-2">
-            <textarea
-              id="message"
-              :value="state.message.value"
+            <Textbox
+              v-model:value="state.message.value"
               name="message"
-              rows="4"
-              placeholder="Message"
-              class="form-textarea block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-green-500 focus:ring-green-500 transition-colors placeholder-gray-400 dark:text-gray-300 dark:bg-black/[.04]"
-              :class="
-                state.message.error
-                  ? '!border-red-500 !ring-1 !ring-red-500'
-                  : ''
+              element="textarea"
+              :error="state.message.error"
+              :error-message="
+                state.message.error ? `Name ${state.message.errorMessage}` : ''
               "
-              @input="
-                ({ target }) => {
-                  state.message.value = target.value;
-                  if (state.message.error) {
-                    setError(state.message, false, '');
-                  }
-                }
+              icon-left="pen"
+              placeholder="Message"
+              @update:value="
+                state.message.error ? setError(state.message, false, '') : null
               "
             />
-            <div
-              v-if="state.message.error"
-              class="mt-1 text-red-500 text-xs text-left truncate w-full"
-            >
-              Message {{ state.message.errorMessage }}
-            </div>
           </div>
           <div class="sm:col-span-2">
             <button

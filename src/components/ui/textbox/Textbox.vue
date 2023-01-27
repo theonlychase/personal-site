@@ -22,6 +22,10 @@
       type: Boolean,
       default: false,
     },
+    element: {
+      type: String,
+      default: 'input',
+    },
     error: {
       type: Boolean,
       default: false,
@@ -87,26 +91,24 @@
     variation: {
       type: String,
       default: 'solid',
+      validator: (val: ComponentOptionsWithArrayProps): boolean => {
+        return val.match(/solid|pill/);
+      },
     },
   });
 
   const input: Ref<HTMLInputElement | null> = ref(null);
+  const keepFocus: Ref<boolean> = ref(false);
 
   const isClearable = computed(() => {
     return props.clearable && props.value && !props.disabled;
   });
 
-  const keepFocus: Ref<boolean> = ref(false);
-
   const rightIcon = computed((): string => {
     if (props.loading) {
       return 'spinner';
     }
-    return !props.error
-      ? isClearable.value
-        ? 'close'
-        : props.iconRight
-      : 'danger';
+    return isClearable.value ? 'close' : props.iconRight;
   });
 
   watch(
@@ -129,7 +131,7 @@
 
 <template>
   <label
-    v-if="label && variation !== 'labelOverlap' && variation !== 'labelInset'"
+    v-if="label"
     :for="label"
     class="block text-sm font-medium text-gray-700"
     :class="{
@@ -141,56 +143,44 @@
   <div
     :class="{
       '!rounded-full': variation === 'pill',
-      'bg-gray-50 border-b-2 shadow-none rounded-none':
-        variation === 'underline',
-      '!border-red-500': error && variation === 'underline',
-      '!border-red-500 !ring-1 !ring-red-500':
-        error && variation !== 'underline',
+      '!border-red-500 !ring-1 !ring-red-500': error,
       '!border-green-500 !ring-1 !ring-green-500': keepFocus,
-      'shadow-sm border focus-within:ring-1 focus-within:ring-green-500':
-        variation !== 'underline',
       'bg-gray-50 pointer-events-none': disabled,
-      [`${customClasses}`]: customClasses,
       'px-3 h-10': size === 'medium',
       'px-4 h-12': size === 'large',
+      '!h-full !pr-0': element === 'textarea',
+      [`${customClasses}`]: customClasses,
     }"
-    class="relative flex items-center rounded-md border-gray-300 bg-white dark:bg-black/[.04] focus-within:border-green-500 transition-colors"
+    class="relative flex items-center rounded-md border border-gray-300 bg-white dark:bg-black/[.04] focus-within:border-green-500 shadow-sm focus-within:ring-1 focus-within:ring-green-500 transition-colors"
   >
     <div
-      v-if="iconLeft && variation !== 'labelInset'"
+      v-if="iconLeft"
       class="absolute inset-y-0 left-0 pl-3 flex items-center"
+      :class="{ 'top-2 bottom-auto': element === 'textarea' }"
     >
-      <Icon :name="iconLeft" size="xSmall" class="text-gray-400" />
+      <Icon
+        :name="iconLeft"
+        size="xSmall"
+        :class="!error ? 'text-gray-400' : 'text-red-500'"
+      />
     </div>
 
-    <label
-      v-if="
-        label && (variation === 'labelOverlap' || variation === 'labelInset')
-      "
-      :for="label"
-      :class="{
-        block: variation === 'labelInset',
-        'absolute -top-2 left-2 -mt-px inline-block px-1':
-          variation === 'labelOverlap',
-        'bg-gray-50': disabled,
-      }"
-      class="bg-white dark:bg-black/[.04] text-xs font-medium text-gray-900"
-    >
-      {{ label }}
-    </label>
-
-    <input
+    <Component
+      :is="element"
       :id="label || id"
       ref="input"
-      autoComplete="new-password"
+      auto-complete="new-password"
       :disabled="disabled"
       :type="type"
       :name="name"
       :class="{
-        'bg-gray-50': variation === 'underline' || disabled,
-        '!pl-7': iconLeft && variation !== 'labelInset',
+        'bg-gray-50': disabled,
+        '!pl-7': iconLeft,
+        'form-input': element === 'input',
+        'form-textarea min-h-[40px] pt-1.5 !pr-8': element === 'textarea',
       }"
-      class="form-input dark:bg-black/[.04] dark:text-gray-300 block w-full min-w-max rounded-md sm:text-sm border-0 pl-0 py-0 pr-7 text-gray-900 placeholder-gray-400 disabled:text-gray-400 focus:ring-0 autofill:!dark:bg-black/[.04]"
+      :rows="element === 'textarea' ? 4 : null"
+      class="block w-full min-w-max rounded-md border-0 pl-0 py-0 pr-7 text-gray-900 dark:bg-black/[.04] dark:text-gray-300 placeholder-gray-400 disabled:text-gray-400 focus:ring-0 autofill:bg-white autofill:!dark:bg-black/[.04]"
       :placeholder="placeholder"
       :value="value"
       @input="({ target }) => emit('update:value', target.value)"
@@ -202,10 +192,11 @@
       v-if="rightIcon"
       class="absolute inset-y-0 right-0 pr-3 flex items-center"
       :class="{
-        'cursor-pointer': isClearable && !error,
+        'cursor-pointer': isClearable,
         'pointer-events-none': !isClearable,
+        'top-2 bottom-auto': element === 'textarea',
       }"
-      @click.prevent="isClearable && !error ? clear() : null"
+      @click.prevent="isClearable ? clear() : null"
       @mousedown.prevent="keepFocus = true"
       @mouseup.prevent="keepFocus = false"
     >
