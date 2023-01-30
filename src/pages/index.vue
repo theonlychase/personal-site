@@ -15,7 +15,7 @@
   <h1>Hi, I'm Chase Isley</h1>
   <p class="text-sm mb-4">Software Engineer</p>
 
-  <LazyTypewriter :data="skills" class="mb-12" />
+  <Typewriter :data="skills" class="mb-12" />
 
   <h2 class="mb-4">Latest Projects</h2>
 
@@ -29,14 +29,14 @@
       :title="title"
       target="_blank"
     >
-      <LazyCard class="h-full dark:bg-black" content-class="px-4" borderless>
+      <Card class="h-full dark:bg-black" content-class="px-4" borderless>
         <div class="font-semibold text-lg dark:text-white">
           {{ title }}
         </div>
         <div v-if="description" class="mt-2 text-sm">
           {{ description }}
         </div>
-      </LazyCard>
+      </Card>
     </a>
   </div>
 </template>
