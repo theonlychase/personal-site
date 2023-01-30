@@ -15,6 +15,7 @@ export default defineNuxtConfig({
           content:
             'Chase Isley is a software engineer highly skilled at modern front-end architecture, design systems, and solving problems at scale.',
         },
+        { name: 'robots', content: 'index, follow' },
       ],
       link: [],
     },

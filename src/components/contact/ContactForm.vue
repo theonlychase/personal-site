@@ -147,7 +147,7 @@
               state.name.error ? `Name ${state.name.errorMessage}` : ''
             "
             icon-left="user"
-            name="name"
+            name="user_name"
             size="large"
             placeholder="Name"
             @update:value="
@@ -159,7 +159,7 @@
             :error="state.email.error"
             :error-message="state.email.errorMessage"
             icon-left="mail"
-            name="email"
+            name="user_email"
             size="large"
             placeholder="Email"
             @update:value="

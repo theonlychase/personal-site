@@ -20,6 +20,7 @@
         "useRoute": "readonly",
         "useToggle": "readonly",
         "useRuntimeConfig": "readonly",
+        "useHead": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2021,
