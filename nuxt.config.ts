@@ -47,6 +47,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+  components: [
+    {
+      path: '~/components',
+      global: false,
+      pathPrefix: false,
+    },
+  ],
   css: ['@/assets/css/tailwind.scss'],
   // imports: {
   //   autoImport: false,
