@@ -6,7 +6,6 @@
     ref,
     watch,
   } from 'vue';
-  import Icon from '~/components/ui/icon/Icon.vue';
 
   const emit = defineEmits(['focus', 'keydown', 'update:value']);
   const props = defineProps({
