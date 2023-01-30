@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { nav } from '~/static/data';
+  import { nav } from '~/static/data/data';
 </script>
 
 <template>
