@@ -2,7 +2,6 @@
   import { ref } from 'vue';
   import Icon from '~/components/ui/icon/Icon.vue';
   import { nav } from '~/static/data/data';
-  const route = useRoute();
 
   interface MobileNavProps {
     show?: boolean;
@@ -26,6 +25,7 @@
 
   const onAfterLeave = () => {
     childTransitions.value = 'w-0 opacity-0 -translate-x-4';
+    document.body.classList.remove('overflow-hidden');
   };
 </script>
 
