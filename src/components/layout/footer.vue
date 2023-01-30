@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { nav } from '~/static/data';
+  import { nav } from '~/static/data/data';
 </script>
 
 <template>
   <footer
     class="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8 px-4 md:px-0"
   >
-    <hr class="w-full border-1 border-gray-300 dark:border-gray-600 mb-8" />
+    <hr class="w-full border-t border-gray-300 dark:border-gray-600 mb-8" />
 
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
       <div class="flex flex-col">

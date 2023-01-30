@@ -4,7 +4,7 @@ module.exports = {
     './src/components/**/*.{vue,js,ts}',
     './src/layouts/*.{vue,js,ts}',
     './src/pages/**/*.{vue,js,ts}',
-    './src/static/*.js',
+    './src/static/data/*.js',
   ],
   theme: {
     colors: {

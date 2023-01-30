@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import Card from '~/components/ui/card/Card.vue';
-  import { projects, skills } from '~/static/data';
+  import { projects, skills } from '~/static/data/data';
 </script>
 
 <template>
