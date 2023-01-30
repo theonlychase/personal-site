@@ -1,5 +1,14 @@
 <script setup lang="ts">
   import { projects, skills } from '~/static/data/data';
+
+  useHead({
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://chaseisley.dev',
+      },
+    ],
+  });
 </script>
 
 <template>

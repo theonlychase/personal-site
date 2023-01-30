@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: "Chase Isley's Portfolio",
+      title: 'Chase Isley - Software Engineer',
       charset: 'utf-8',
       meta: [
         {
