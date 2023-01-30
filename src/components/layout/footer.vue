@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  const route = useRoute();
   import { nav } from '~/static/data/data';
 </script>
 
@@ -10,16 +11,19 @@
 
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
       <div class="flex flex-col">
-        <NuxtLink
+        <a
           v-for="item in nav"
           :key="item.text"
-          :to="`${item.to}`"
+          :href="`${item.to}`"
           :title="item.text"
-          active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold"
+          :class="{
+            '!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold':
+              route.href === item.to,
+          }"
           class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 px-3 py-2 transition-colors"
         >
           {{ item.text }}
-        </NuxtLink>
+        </a>
       </div>
       <div class="flex flex-col">
         <a

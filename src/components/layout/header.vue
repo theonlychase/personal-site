@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { useColorMode } from '@vueuse/core';
-  import LayoutNavigation from '@/components/layout/navigation.vue';
-  import LayoutMobileNavigation from '~/components/layout/MobileNavigation.vue';
-  import Icon from '@/components/ui/icon/Icon.vue';
+  import Navigation from '~/components/layout/navigation.vue';
+  import LazyMobileNavigation from '~/components/layout/MobileNavigation.vue';
+  import Icon from '~/components/ui/icon/Icon.vue';
 
   const mode = useColorMode({
     emitAuto: true,
@@ -22,9 +22,9 @@
     <div
       class="relative flex justify-between items-center max-w-2xl mx-auto px-4 md:px-0 py-6"
     >
-      <LayoutNavigation />
+      <Navigation />
 
-      <LayoutMobileNavigation />
+      <LazyMobileNavigation />
 
       <button
         type="button"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  const route = useRoute();
   import Icon from '~/components/ui/icon/Icon.vue';
   import { nav } from '~/static/data/data';
 
@@ -60,14 +61,17 @@
           class="flex transition-all ease duration-300 border-b border-gray-300 dark:border-gray-600 pb-4"
           :class="[childTransitions, item.delay]"
         >
-          <NuxtLink
+          <a
             :href="`${item.to}`"
             class="custom-link text-lg w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
-            active-class="!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold"
+            :class="{
+              '!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold':
+                route.href === item.to,
+            }"
             @click="showMenu = false"
           >
             {{ item.text }}
-          </NuxtLink>
+          </a>
         </li>
         <li
           class="flex transition-all ease duration-300 delay-300"
