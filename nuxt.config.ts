@@ -55,6 +55,7 @@ export default defineNuxtConfig({
   ],
   css: ['@/assets/css/tailwind.scss'],
   experimental: {
+    payloadExtraction: true,
     viteServerDynamicImports: true,
   },
   modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
