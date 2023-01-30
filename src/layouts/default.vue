@@ -1,17 +1,17 @@
 <script setup lang="ts">
-  import LayoutPage from '@/components/layout/page.vue';
-  import LayoutHeader from '@/components/layout/header.vue';
-  import LayoutFooter from '@/components/layout/footer.vue';
+  import Page from '~/components/layout/page.vue';
+  import Header from '~/components/layout/header.vue';
+  import Footer from '~/components/layout/footer.vue';
 </script>
 
 <template>
   <div id="app">
-    <LayoutHeader />
+    <Header />
 
-    <LayoutPage>
+    <Page>
       <slot />
-    </LayoutPage>
+    </Page>
 
-    <LayoutFooter />
+    <Footer />
   </div>
 </template>

@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from 'nuxt3/config';
-import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineNuxtConfig({
   app: {
@@ -55,9 +54,6 @@ export default defineNuxtConfig({
     },
   ],
   css: ['@/assets/css/tailwind.scss'],
-  // imports: {
-  //   autoImport: false,
-  // },
   modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
   postcss: {
     plugins: {
@@ -80,6 +76,5 @@ export default defineNuxtConfig({
         usePolling: true,
       },
     },
-    plugins: [visualizer()],
   },
 });
