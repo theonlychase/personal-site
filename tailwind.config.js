@@ -42,6 +42,7 @@ module.exports = {
       aspectRatio: {
         '4/3': '4 / 3',
         '16/9': '16 / 9',
+        '21/9': '21 / 9',
       },
       keyframes: {
         blink: {
@@ -92,18 +93,36 @@ module.exports = {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            pre: {
-              color: theme('colors.gray.800'),
-              backgroundColor: theme('colors.transparent'),
+            '--tw-prose-body': theme('colors.gray.700'),
+            '--tw-prose-headings': theme('colors.gray.800'),
+            '--tw-prose-pre-bg': theme('colors.black'),
+            '--tw-prose-quotes': theme('colors.gray.800'),
+            '--tw-prose-quote-borders': theme('colors.gray.200'),
+            fontFamily: 'inherit',
+            color: theme('colors.gray.700'),
+            h1: {
+              marginBottom: theme('margin.2'),
+            },
+            h2: {
+              marginTop: theme('margin.8'),
+              marginBottom: theme('margin.4'),
+            },
+            h3: {
+              marginTop: theme('margin.6'),
+              fontWeight: theme('fontWeight.semibold'),
+              '@media screen(md)': {
+                marginTop: theme('margin.6'),
+              },
+              marginBottom: theme('margin.4'),
             },
           },
         },
         invert: {
           css: {
-            pre: {
-              color: theme('colors.gray.400'),
-              backgroundColor: theme('colors.transparent'),
-            },
+            '--tw-prose-invert-pre-bg': 'rgb(255 255 255 / .04)',
+            '--tw-prose-quotes': theme('colors.gray.400'),
+            '--tw-prose-invert-quote-borders': theme('colors.gray.600'),
+            color: theme('colors.gray.400'),
           },
         },
       }),

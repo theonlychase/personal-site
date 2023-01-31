@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import { projects, skills } from '~/static/data/data';
+  import Card from '~/components/ui/card/Card.vue';
+  import Typewriter from '~/components/ui/typewriter/Typewriter.vue';
 
   useHead({
     link: [
@@ -29,7 +31,7 @@
       :title="title"
       target="_blank"
     >
-      <Card class="h-full dark:bg-black" content-class="px-4" borderless>
+      <Card class="h-full dark:bg-black !shadow-none !ring-0">
         <div class="font-semibold text-lg dark:text-white">
           {{ title }}
         </div>

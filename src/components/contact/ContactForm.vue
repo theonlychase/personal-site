@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import { reactive, Ref, ref } from 'vue';
+  import Textbox from '~/components/ui/textbox/Textbox.vue';
+  import Icon from '~/components/ui/icon/Icon.vue';
   import { injectScript, validateEmail } from '~/utils/utils';
   const config = useRuntimeConfig();
 

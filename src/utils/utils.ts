@@ -5,6 +5,15 @@ export function validateEmail(email: string) {
   return regex.test(email);
 }
 
+export const shuffle = ([...arr]) => {
+  let m = arr.length;
+  while (m) {
+    const i = ~~(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+};
+
 export function injectScript({
   src = '',
   id = '',

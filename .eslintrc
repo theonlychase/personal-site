@@ -20,7 +20,9 @@
         "useRoute": "readonly",
         "useToggle": "readonly",
         "useRuntimeConfig": "readonly",
-        "useHead": "readonly"
+        "useHead": "readonly",
+        "useAsyncData": "readonly",
+        "queryContent": "readonly",
     },
     "parserOptions": {
         "ecmaVersion": 2021,

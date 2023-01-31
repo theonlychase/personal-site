@@ -46,18 +46,26 @@ export default defineNuxtConfig({
       ],
     },
   },
-  components: [
-    {
-      path: '~/components',
-      global: false,
-      pathPrefix: false,
-    },
-  ],
+  components: false,
   css: ['@/assets/css/tailwind.scss'],
   experimental: {
+    payloadExtraction: true,
     viteServerDynamicImports: true,
   },
-  modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
+  modules: [
+    ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
+    [
+      '@nuxt/content',
+      {
+        highlight: {
+          theme: {
+            default: 'material-darker',
+          },
+          preload: ['vue'],
+        },
+      },
+    ],
+  ],
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},

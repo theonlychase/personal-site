@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useColorMode } from '@vueuse/core';
   import Navigation from '~/components/layout/navigation.vue';
-  import LazyMobileNavigation from '~/components/layout/MobileNavigation.vue';
+  import MobileNavigation from '~/components/layout/MobileNavigation.vue';
   import Icon from '~/components/ui/icon/Icon.vue';
 
   const mode = useColorMode({
@@ -24,7 +24,7 @@
     >
       <Navigation />
 
-      <LazyMobileNavigation />
+      <MobileNavigation />
 
       <button
         type="button"

@@ -14,7 +14,7 @@
 
 <template>
   <div
-    class="bg-gray-50 overflow-hidden divide-y divide-gray-200 rounded-lg"
+    class="bg-gray-50 overflow-hidden rounded-lg"
     :class="{
       'shadow-sm ring-1 ring-gray-200 ring-inset': !borderless,
     }"
@@ -29,18 +29,17 @@
       <slot name="header" />
     </div>
 
-    <div :class="contentClass">
-      <slot v-if="$slots.media" name="media" />
+    <slot v-if="$slots.media" name="media" />
 
-      <div
-        class="py-4"
-        :class="{
-          'px-4': !borderless,
-          'border-t border-gray-200': $slots.media,
-        }"
-      >
-        <slot />
-      </div>
+    <div
+      class="py-4"
+      :class="{
+        contentClass: contentClass,
+        'px-4': !borderless,
+        'border-t border-t-gray-200 dark:border-t-gray-600': $slots.media,
+      }"
+    >
+      <slot />
     </div>
 
     <div

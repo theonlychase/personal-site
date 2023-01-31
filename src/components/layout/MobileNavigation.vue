@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import Icon from '~/components/ui/icon/Icon.vue';
   const route = useRoute();
   import { nav } from '~/static/data/data';
 
@@ -65,7 +66,7 @@
             class="custom-link text-lg w-full text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 rounded-lg transition-colors"
             :class="{
               '!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold':
-                route.href === item.to,
+                route.name.includes(item.name),
             }"
             @click="showMenu = false"
           >
