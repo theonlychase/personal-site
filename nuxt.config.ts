@@ -65,6 +65,20 @@ export default defineNuxtConfig({
     ],
     ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
   ],
+  nitro: {
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true,
+    },
+    minify: true,
+    routeRules: {
+      '/blog/**': { static: true },
+      '/api/_content/**': {
+        cors: true,
+        headers: { 'access-control-allowed-methods': 'GET' },
+      },
+    },
+  },
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},

@@ -1,8 +1,6 @@
 <script setup lang="ts">
   const { path } = useRoute();
-  const { data } = await useAsyncData('blog', () =>
-    $fetch(`/api/_content/query?path=${path}`),
-  );
+  const data = await $fetch(`/api/_content/query?path=${path}`);
 </script>
 
 <template>
