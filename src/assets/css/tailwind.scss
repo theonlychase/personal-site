@@ -16,18 +16,18 @@
   }
 
   h1 {
-    @apply text-3xl md:text-5xl;
+    @apply text-3xl md:text-5xl #{!important};
   }
   h2 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl #{!important};
   }
   h3 {
-    @apply text-xl md:text-2xl;
+    @apply text-xl md:text-2xl #{!important};
   }
   h1,
   h2,
   h3 {
-    @apply text-gray-800 dark:text-gray-200 font-semibold leading-tight tracking-tight;
+    @apply text-gray-800 dark:text-gray-200 font-semibold leading-tight tracking-tight #{!important};
   }
   a:not(.custom-link) {
     @apply text-green-500 hover:text-green-700;
