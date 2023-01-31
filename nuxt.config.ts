@@ -83,17 +83,4 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src/',
-  // vite: {
-  //   build: {
-  //     rollupOptions: {
-  //       output: {
-  //         manualChunks(id) {
-  //           if (id.includes('Prose')) {
-  //             return 'prose';
-  //           }
-  //         },
-  //       },
-  //     },
-  //   },
-  // }
 });

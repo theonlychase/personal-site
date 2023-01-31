@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  const route = useRoute();
   import { nav } from '~/static/data/data';
+  const route = useRoute();
 </script>
 
 <template>

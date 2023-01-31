@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import Icon from '~/components/ui/icon/Icon.vue';
-  const route = useRoute();
   import { nav } from '~/static/data/data';
+  const route = useRoute();
 
   interface MobileNavProps {
     show?: boolean;
