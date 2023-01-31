@@ -48,9 +48,6 @@ export default defineNuxtConfig({
   },
   components: false,
   css: ['~/assets/css/tailwind.scss'],
-  experimental: {
-    viteServerDynamicImports: true,
-  },
   modules: [
     [
       '@nuxt/content',
@@ -71,13 +68,6 @@ export default defineNuxtConfig({
       brotli: true,
     },
     minify: true,
-    routeRules: {
-      '/blog/**': { static: true },
-      '/api/_content/**': {
-        cors: true,
-        headers: { 'access-control-allowed-methods': 'GET' },
-      },
-    },
   },
   postcss: {
     plugins: {
@@ -94,4 +84,17 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src/',
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('Prose')) {
+              return 'prose';
+            }
+          },
+        },
+      },
+    },
+  },
 });
