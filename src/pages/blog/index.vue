@@ -4,8 +4,8 @@
   import { gradients } from '~/static/data/data';
   import { shuffle } from '~/utils/utils';
   const _gradients = shuffle(gradients);
-  const { data } = await useFetch(
-    '/api/_content/query?only=title,description,_path',
+  const { data } = await useAsyncData('list', () =>
+    $fetch('/api/_content/query?only=title,description,_path'),
   );
 
   useHead({
