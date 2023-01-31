@@ -40,6 +40,7 @@ module.exports = {
         fadeLeft: 'fadeLeft .5s',
       },
       aspectRatio: {
+        '1/1': '1 / 1',
         '4/3': '4 / 3',
         '16/9': '16 / 9',
         '21/9': '21 / 9',

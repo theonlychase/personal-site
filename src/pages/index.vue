@@ -1,7 +1,15 @@
 <script setup lang="ts">
-  import { projects, skills } from '~/static/data/data';
-  import Card from '~/components/ui/card/Card.vue';
+  import GradientCard from '~/components/common/GradientCard.vue';
   import Typewriter from '~/components/ui/typewriter/Typewriter.vue';
+  import Icon from '~/components/ui/icon/Icon.vue';
+  import { projects, skills } from '~/static/data/data';
+  import { shuffle } from '~/utils/utils';
+  const _project = shuffle();
+  const _blog = shuffle();
+
+  const { data } = await useAsyncData('list', () =>
+    $fetch('/api/_content/query?only=title,description,_path'),
+  );
 
   useHead({
     link: [
@@ -19,26 +27,33 @@
 
   <Typewriter :data="skills" class="mb-12" />
 
-  <h2 class="mb-4">Latest Projects</h2>
+  <h2 class="mb-4">Projects</h2>
 
-  <div class="grid md:grid-cols-2 gap-4">
-    <a
-      v-for="{ description, title, url, gradient } in projects"
+  <div class="grid md:grid-cols-2 gap-4 mb-12">
+    <GradientCard
+      v-for="({ description, title, url }, index) in projects"
       :key="title"
-      class="transform hover:scale-105 transition-all rounded-xl w-full bg-gradient-to-r p-1 custom-link"
-      :class="gradient"
-      :href="url"
-      :title="title"
+      :data="{ description, _path: url, title }"
       target="_blank"
+      :class="_project[index]"
+    />
+  </div>
+
+  <h2 class="mb-4">Blog</h2>
+
+  <div class="flex gap-4">
+    <GradientCard
+      v-for="({ description, _path, title }, index) in data"
+      :key="title"
+      :data="{ description, _path, title }"
+      direction="horizontal"
+      :class="_blog[index]"
     >
-      <Card class="h-full dark:bg-black !shadow-none !ring-0">
-        <div class="font-semibold text-lg dark:text-white">
-          {{ title }}
-        </div>
-        <div v-if="description" class="mt-2 text-sm">
-          {{ description }}
-        </div>
-      </Card>
-    </a>
+      <div
+        class="aspect-1/1 flex items-center justify-center bg-green-500/20 px-4"
+      >
+        <Icon name="vue" class="text-green-500" title="Vue" size="xLarge" />
+      </div>
+    </GradientCard>
   </div>
 </template>
