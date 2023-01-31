@@ -23,7 +23,8 @@
         "useHead": "readonly",
         "useAsyncData": "readonly",
         "queryContent": "readonly",
-        "useFetch": "readonly"
+        "useFetch": "readonly",
+        "$fetch": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2021,

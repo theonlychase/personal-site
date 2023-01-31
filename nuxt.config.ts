@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -64,9 +66,6 @@ export default defineNuxtConfig({
     ],
     ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
   ],
-  nitro: {
-    minify: true,
-  },
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
