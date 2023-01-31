@@ -49,7 +49,7 @@ export default defineNuxtConfig({
   components: false,
   css: ['@/assets/css/tailwind.scss'],
   experimental: {
-    payloadExtraction: true,
+    viteServerDynamicImports: true,
   },
   modules: [
     [
@@ -65,6 +65,9 @@ export default defineNuxtConfig({
     ],
     ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
   ],
+  nitro: {
+    minify: true,
+  },
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
