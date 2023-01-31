@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { nav } from '~/static/data/data';
-  const route = useRoute();
 </script>
 
 <template>
@@ -11,7 +10,7 @@
       :href="`${item.to}`"
       :class="{
         '!text-green-500 hover:!text-green-700 dark:!text-green-500 dark:hover:!text-green-700 font-semibold':
-          route.name.includes(item.name),
+          $route.name.includes(item.name),
       }"
       class="custom-link text-lg text-gray-800 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-700 p-1 sm:px-3 sm:py-2 transition-colors"
     >
