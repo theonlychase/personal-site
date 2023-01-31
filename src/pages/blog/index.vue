@@ -4,11 +4,9 @@
   import { gradients } from '~/static/data/data';
   import { shuffle } from '~/utils/utils';
   const _gradients = shuffle(gradients);
-
-  const { path } = useRoute();
-  const { data } = await useAsyncData(`content-${path}`, () => {
-    return queryContent().only(['title', 'description', '_path']).find();
-  });
+  const { data } = await useFetch(
+    '/api/_content/query?only=title,description,_path',
+  );
 
   useHead({
     title: 'Chase Isley - Blog',

@@ -1,16 +1,11 @@
 <script setup lang="ts">
   const { path } = useRoute();
-  const { data } = await useAsyncData(`content-${path}`, () => {
-    return queryContent().where({ _path: path }).findOne();
-  });
+  const { data } = await useFetch(`/api/_content/query?path=${path}`);
 </script>
 
 <template>
   <article class="prose dark:prose-invert">
-    <ContentRenderer :value="data">
-      <!-- render rich text from document -->
-
-      <!-- display if document content is empty -->
+    <ContentRenderer :value="data[0]">
       <template #empty>
         <p>No content found.</p>
       </template>
