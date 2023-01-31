@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt3/config';
-
 export default defineNuxtConfig({
   app: {
     head: {
@@ -53,7 +51,6 @@ export default defineNuxtConfig({
     viteServerDynamicImports: true,
   },
   modules: [
-    ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
     [
       '@nuxt/content',
       {
@@ -65,7 +62,11 @@ export default defineNuxtConfig({
         },
       },
     ],
+    ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
   ],
+  nitro: {
+    minify: true,
+  },
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
@@ -81,11 +82,17 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src/',
-  vite: {
-    server: {
-      watch: {
-        usePolling: true,
-      },
-    },
-  },
+  // vite: {
+  //   build: {
+  //     rollupOptions: {
+  //       output: {
+  //         manualChunks(id) {
+  //           if (id.includes('Prose')) {
+  //             return 'prose';
+  //           }
+  //         },
+  //       },
+  //     },
+  //   },
+  // }
 });
