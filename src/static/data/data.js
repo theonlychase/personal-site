@@ -4,11 +4,11 @@ const nav = [
     to: '/',
     delay: '',
   },
-  // {
-  //   text: 'Blog',
-  //   to: '/blog',
-  //   delay: 'delay-75',
-  // },
+  {
+    text: 'Blog',
+    to: '/blog',
+    delay: 'delay-75',
+  },
   {
     text: 'Contact',
     to: '/contact',

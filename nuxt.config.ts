@@ -59,6 +59,12 @@ export default defineNuxtConfig({
     viteServerDynamicImports: true,
   },
   modules: [['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }]],
+  nitro: {
+    compressPublicAssets: {
+      brotli: true,
+      gzip: true,
+    },
+  },
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
