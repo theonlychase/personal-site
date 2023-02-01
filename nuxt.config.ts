@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config';
+import UnheadVite from '@unhead/addons/vite';
 
 export default defineNuxtConfig({
   app: {
@@ -96,5 +97,6 @@ export default defineNuxtConfig({
         },
       },
     },
+    plugins: [UnheadVite()],
   },
 });

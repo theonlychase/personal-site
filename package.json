@@ -18,6 +18,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.11.18",
+    "@unhead/addons": "^1.0.20",
     "@vue/test-utils": "^2.2.8",
     "@vue/vue3-jest": "^29.2.2",
     "@vueuse/core": "^9.12.0",

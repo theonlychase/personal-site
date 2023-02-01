@@ -7,20 +7,9 @@
     $fetch('/api/_content/query?only=title,description,_path'),
   );
 
-  useHead({
+  definePageMeta({
     title: 'Chase Isley - Blog',
-    meta: [
-      {
-        name: 'description',
-        content: 'All Blog Posts',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://chaseisley.dev/blog',
-      },
-    ],
+    description: 'Recent Blog Posts',
   });
 </script>
 
