@@ -1,14 +1,8 @@
 <script setup lang="ts">
   import ContactForm from '~/components/contact/ContactForm.vue';
-
-  useHead({
+  definePageMeta({
     title: 'Chase Isley - Contact',
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://chaseisley.dev/contact',
-      },
-    ],
+    description: 'Send Chase Isley a Message',
   });
 </script>
 

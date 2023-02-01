@@ -1,26 +1,25 @@
 <script setup lang="ts">
+  import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
   const { path } = useRoute();
-  const { data } = await useAsyncData('blog', () =>
-    $fetch(`/api/_content/query?_params={"where":{"_path":"${path}"}}`),
+  interface MyCustomParsedContent extends ParsedContent {
+    title: string;
+    description: string;
+  }
+
+  const { data } = await useAsyncData(() =>
+    $fetch<MyCustomParsedContent>(
+      `/api/_content/query?_params={"where":{"_path":"${path}"}}`,
+    ),
   );
 
   // @ts-ignore
-  const { title, description, _path } = data?.value[0] ?? {};
+  const { title, description } = data?.value[0];
 
-  useHead({
-    title: `Chase Isley - ${title}`,
-    meta: [
-      {
-        name: 'description',
-        content: `${description}`,
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: `https://chaseisley.dev${_path}`,
-      },
-    ],
+  useSeoMeta({
+    title: () => `Chase Isley - ${title}`,
+    ogTitle: () => `Chase Isley - ${title}`,
+    description: () => description,
+    ogDescription: () => description,
   });
 </script>
 

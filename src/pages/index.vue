@@ -10,15 +10,6 @@
   const { data } = await useAsyncData('list', () =>
     $fetch('/api/_content/query?only=title,description,_path'),
   );
-
-  useHead({
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://chaseisley.dev',
-      },
-    ],
-  });
 </script>
 
 <template>
