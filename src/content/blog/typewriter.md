@@ -1,8 +1,7 @@
 ---
-title: 'Vue 3 Typewriter Component'
+title: 'Chase Isley - Vue 3 Typewriter Component'
 _path: '/blog/create-a-typewriter-component-in-vue-3'
 description: 'Create a reusable Typewriter component'
-tags: ['Vue', 'Components']
 ---
 
 # Vue 3 Typewriter Component

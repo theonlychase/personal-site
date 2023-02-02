@@ -53,12 +53,16 @@ export default defineNuxtConfig({
     [
       '@nuxt/content',
       {
+        markdown: {
+          anchorLinks: false,
+        },
         highlight: {
           theme: {
             default: 'material-darker',
           },
           preload: ['vue'],
         },
+        yaml: false,
       },
     ],
     ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
@@ -85,18 +89,23 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src/',
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('Prose')) {
-              return 'prose';
-            }
-          },
-        },
-      },
+  typescript: {
+    tsConfig: {
+      include: ['src/**/*'],
     },
+  },
+  vite: {
+    // build: {
+    //   rollupOptions: {
+    //     output: {
+    //       manualChunks(id) {
+    //         if (id.includes('Prose')) {
+    //           return 'prose';
+    //         }
+    //       },
+    //     },
+    //   },
+    // },
     plugins: [UnheadVite()],
   },
 });
