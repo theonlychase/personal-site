@@ -116,6 +116,12 @@ module.exports = {
               },
               marginBottom: theme('margin.4'),
             },
+            code: {
+              '& .line': {
+                display: 'block',
+                minHeight: '1rem',
+              },
+            },
           },
         },
         invert: {
