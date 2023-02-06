@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config';
+import netlifyEdge from '@netlify/vite-plugin-netlify-edge';
 import UnheadVite from '@unhead/addons/vite';
 
 export default defineNuxtConfig({
@@ -73,6 +74,7 @@ export default defineNuxtConfig({
       brotli: true,
     },
     minify: true,
+    preset: 'netlify-edge',
   },
   postcss: {
     plugins: {
@@ -106,6 +108,6 @@ export default defineNuxtConfig({
     //     },
     //   },
     // },
-    plugins: [UnheadVite()],
+    plugins: [netlifyEdge(), UnheadVite()],
   },
 });
