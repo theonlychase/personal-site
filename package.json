@@ -12,7 +12,6 @@
     "*.{vue,js,ts}": "eslint --fix"
   },
   "devDependencies": {
-    "@netlify/vite-plugin-netlify-edge": "^1.1.2",
     "@nuxt/content": "^2.4.3",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@tailwindcss/forms": "^0.5.3",
