@@ -30,10 +30,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  console.log('view', view);
-
   return {
     view,
-    // path: `/course/chapter/${chapterSlug}/lesson/${lessonSlug}`,
   };
 });
