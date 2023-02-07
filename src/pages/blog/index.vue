@@ -4,7 +4,7 @@
   import { shuffle } from '~/utils/utils';
   const _blog = shuffle();
   const { data } = await useAsyncData('list', () =>
-    $fetch('/api/_content/query?only=title,description,_path'),
+    $fetch('/api/_content/query?only=short,description,_path'),
   );
 
   definePageMeta({
@@ -16,15 +16,18 @@
 <template>
   <h1 class="mb-12">Blog</h1>
 
-  <div class="grid md:grid-cols-2 gap-4">
+  <div class="grid gap-4">
     <GradientCard
-      v-for="({ title, description, _path }, index) in data"
-      :key="title"
-      :data="{ description, _path, title }"
+      v-for="({ short, description, _path }, index) in data"
+      :key="short"
+      :data="{ description, _path, title: short }"
+      direction="horizontal"
       :class="_blog[index]"
     >
-      <div class="aspect-21/9 flex items-center justify-center bg-green-500/20">
-        <Icon name="vue" class="text-green-500 w-24 h-24" title="Vue" />
+      <div
+        class="aspect-21/9 flex items-center justify-center bg-green-500/20 px-4"
+      >
+        <Icon name="vue" class="text-green-500" size="xLarge" title="Vue" />
       </div>
     </GradientCard>
   </div>

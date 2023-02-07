@@ -66,6 +66,7 @@ export default defineNuxtConfig({
       },
     ],
     ['@vueuse/nuxt', { autoImports: false, ssrHandlers: true }],
+    '@nuxtjs/supabase',
   ],
   nitro: {
     compressPublicAssets: {

@@ -1,20 +1,32 @@
 <script setup lang="ts">
-  import { reactive } from 'vue';
-  const state = reactive({ text: '', complete: false, index: 0 });
+  const props = withDefaults(
+    defineProps<{
+      data: Array<string>;
+      start?: number;
+      enter?: number;
+      end?: number;
+      leave?: number;
+    }>(),
+    {
+      data: () => [],
+      start: 1000,
+      enter: 60,
+      end: 1500,
+      leave: 30,
+    },
+  );
 
-  const props = withDefaults(defineProps<{ data: Array<string> }>(), {
-    data: () => [],
-  });
+  const state = reactive({ text: '', complete: false, index: 0 });
 
   addText();
   function addText() {
     if (state.text.length < props.data[state.index].length && !state.complete) {
       state.text += props.data[state.index].charAt(state.text.length);
-      setTimeout(addText, 60);
+      setTimeout(addText, props.enter);
     }
     if (state.text.length === props.data[state.index].length) {
       state.complete = true;
-      setTimeout(removeText, 1500);
+      setTimeout(removeText, props.end);
     }
   }
 
@@ -23,7 +35,7 @@
       const t = state.text.split('');
       t.pop();
       state.text = t.join('');
-      setTimeout(removeText, 30);
+      setTimeout(removeText, props.leave);
     }
     if (state.text.length === 0 && state.complete) {
       state.complete = false;
@@ -33,7 +45,7 @@
         state.index++;
       }
 
-      setTimeout(addText, 1000);
+      setTimeout(addText, props.start);
     }
   }
 </script>

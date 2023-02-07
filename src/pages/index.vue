@@ -8,7 +8,7 @@
   const _blog = shuffle();
 
   const { data } = await useAsyncData('list', () =>
-    $fetch('/api/_content/query?only=title,description,_path'),
+    $fetch('/api/_content/query?only=short,description,_path'),
   );
 </script>
 
@@ -27,16 +27,27 @@
       :data="{ description, _path: url, title }"
       target="_blank"
       :class="_project[index]"
-    />
+    >
+      <div
+        class="aspect-21/9 flex items-center justify-center bg-green-500/20 px-4"
+      >
+        <Icon
+          name="vue"
+          class="text-green-500 w-24 h-24"
+          title="Vue"
+          size="xLarge"
+        />
+      </div>
+    </GradientCard>
   </div>
 
   <h2 class="mb-4">Blog</h2>
 
   <div class="flex gap-4">
     <GradientCard
-      v-for="({ description, _path, title }, index) in data"
-      :key="title"
-      :data="{ description, _path, title }"
+      v-for="({ description, _path, short }, index) in data"
+      :key="short"
+      :data="{ description, _path, title: short }"
       direction="horizontal"
       :class="_blog[index]"
     >
