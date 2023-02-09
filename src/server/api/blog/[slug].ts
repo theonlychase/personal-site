@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  const { slug } = event.context.params;
+  const { slug = '' }: any = event.context.params;
 
   let view = await prisma.views.findUnique({
     where: {
