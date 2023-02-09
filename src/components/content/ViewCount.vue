@@ -1,6 +1,16 @@
 <script setup lang="ts">
-  const { data: views } = useNuxtData('views');
-  const date = new Date(views.value.view.createdAt).toLocaleDateString();
+  import { type ViewCount } from '~/types/content';
+  interface ViewCountProps {
+    views: ViewCount;
+  }
+
+  const props = withDefaults(defineProps<ViewCountProps>(), {
+    views: () => ({
+      createdAt: new Date(),
+      viewCount: 0,
+    }),
+  });
+  const date = new Date(props.views.createdAt).toLocaleDateString();
 </script>
 
 <template>
@@ -11,6 +21,6 @@
       {{ date }}
     </div>
     <div class="h-0.5 bg-gray-300 dark:bg-gray-600" />
-    <div>{{ views.view.viewCount }} Views</div>
+    <div>{{ views.viewCount }} Views</div>
   </div>
 </template>

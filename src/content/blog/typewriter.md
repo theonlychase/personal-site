@@ -5,11 +5,6 @@ _path: '/blog/create-a-typewriter-component-in-vue-3'
 description: 'Create a reusable Typewriter component using Vue 3, TypeScript, & Tailwind'
 created: 'Feb 5, 2023'
 ---
-
-# Typewriter Component
-
-:view-count
-
 > Create a reusable Typewriter component using Vue 3, TypeScript, & Tailwind!
 
 **The final code can be seen at the bottom**

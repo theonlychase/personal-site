@@ -90,11 +90,6 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src/',
-  typescript: {
-    tsConfig: {
-      include: ['src/**/*'],
-    },
-  },
   vite: {
     // build: {
     //   rollupOptions: {
