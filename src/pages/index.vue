@@ -44,7 +44,7 @@
     </GradientCard>
   </div>
 
-  <h2 class="mb-4">Blog</h2>
+  <h2 class="mb-4">Snippets</h2>
 
   <div class="flex gap-4">
     <GradientCard
