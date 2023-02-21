@@ -6,9 +6,9 @@ const nav = [
     delay: '',
   },
   {
-    text: 'Blog',
-    name: 'blog',
-    to: '/blog',
+    text: 'Snippets',
+    name: 'snippets',
+    to: '/snippets',
     delay: 'delay-75',
   },
   {

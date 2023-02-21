@@ -120,7 +120,16 @@ module.exports = {
             code: {
               '& .line': {
                 display: 'block',
-                minHeight: '1rem',
+                minHeight: theme('height.4'),
+                fontSize: theme('fontSize.xs'),
+              },
+            },
+            blockquote: {
+              '& p:first-of-type::before': {
+                content: '""',
+              },
+              '& p:first-of-type::after': {
+                content: '""',
               },
             },
           },

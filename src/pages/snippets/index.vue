@@ -8,13 +8,13 @@
   );
 
   definePageMeta({
-    title: 'Chase Isley - Blog',
+    title: 'Chase Isley - Snippets',
     description: 'Recent Blog Posts',
   });
 </script>
 
 <template>
-  <h1 class="mb-12">Blog</h1>
+  <h1 class="mb-12">Snippets</h1>
 
   <div class="grid gap-4">
     <GradientCard
@@ -27,7 +27,12 @@
       <div
         class="aspect-21/9 flex items-center justify-center bg-green-500/20 px-4"
       >
-        <Icon name="vue" class="text-green-500" size="xLarge" title="Vue" />
+        <Icon
+          name="vue"
+          class="text-green-500"
+          size="xLarge"
+          title="Vue"
+        />
       </div>
     </GradientCard>
   </div>
