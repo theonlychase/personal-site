@@ -16,7 +16,10 @@
   <h1>Hi, I'm Chase Isley</h1>
   <p class="text-sm mb-4">Software Engineer</p>
 
-  <Typewriter :data="skills" class="mb-12" />
+  <Typewriter
+    :data="skills"
+    class="mb-12"
+  />
 
   <h2 class="mb-4">Projects</h2>
 
@@ -54,7 +57,12 @@
       <div
         class="aspect-1/1 flex items-center justify-center bg-green-500/20 px-4"
       >
-        <Icon name="vue" class="text-green-500" title="Vue" size="xLarge" />
+        <Icon
+          name="vue"
+          class="text-green-500"
+          title="Vue"
+          size="xLarge"
+        />
       </div>
     </GradientCard>
   </div>

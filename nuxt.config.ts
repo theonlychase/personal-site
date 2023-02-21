@@ -82,12 +82,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  routeRules: {
-    '/blog/**': {
-      swr: true,
-      headers: { 'cache-control': 'no-cache, no-store, must-revalidate' },
-    },
-  },
+  // routeRules: {
+  //   '/snippets/**': {
+  //     swr: true,
+  //     headers: { 'cache-control': 'no-cache, no-store, must-revalidate' },
+  //   },
+  // },
   runtimeConfig: {
     public: {
       emailId: '',
