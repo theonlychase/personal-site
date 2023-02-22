@@ -29,7 +29,10 @@
       <slot name="header" />
     </div>
 
-    <slot v-if="$slots.media" name="media" />
+    <slot
+      v-if="$slots.media"
+      name="media"
+    />
 
     <div
       class="py-4"
