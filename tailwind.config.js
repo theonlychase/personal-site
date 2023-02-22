@@ -10,6 +10,10 @@ module.exports = {
   theme: {
     colors: {
       black: '#242424',
+      blue: {
+        200: '#bfdbfe',
+        500: '#3b82f6',
+      },
       gray: {
         900: '#111827',
         800: '#1F2937',
@@ -23,11 +27,21 @@ module.exports = {
         50: '#F9FAFB',
       },
       green: {
+        200: '#bbf7d0',
         500: '#42b883',
         700: '#33a06f',
         800: '#295f47',
       },
+      orange: {
+        200: '#fed7aa',
+        500: '#f97316',
+      },
+      purple: {
+        200: '#e9d5ff',
+        500: '#a855f7',
+      },
       red: {
+        200: '#fecaca',
         500: '#EF4444',
       },
       transparent: 'transparent',

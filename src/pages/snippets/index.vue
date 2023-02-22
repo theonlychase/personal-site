@@ -25,7 +25,7 @@
       :class="_blog[index]"
     >
       <div
-        class="aspect-21/9 flex items-center justify-center bg-green-500/20 px-4"
+        class="aspect-21/9 flex items-center justify-center bg-green-500/20 dark:bg-green-200/90 px-4"
       >
         <Icon
           name="vue"
